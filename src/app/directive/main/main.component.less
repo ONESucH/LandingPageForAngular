@@ -1,0 +1,159 @@
+@import "../../../assets/vendor/font-awesome/css/font-awesome.min.css";
+@import "../../fonts";
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  min-height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  text-shadow: 0 0 10px #f71aff;
+  background: rgba(0, 0, 0, 0.80);
+  a {
+    color: #fff;
+    text-shadow: 0 0 10px #f71aff;
+    animation: hoverLink 0.5s normal ease;
+    opacity: 1;
+    cursor: pointer;
+    &:hover {
+      text-shadow: 0 0 15px #f71aff;
+      transition: 1s;
+      color: rgba(219, 219, 219, 0.31);
+      animation: hoverLink 0.5s normal ease;
+    }
+  }
+  i {
+    margin-right: 10px;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+  }
+}
+
+.lamp-shine {
+  position: relative;
+  height: 100vh;
+  width: 300px;
+  background: url('../../../assets/img/lamp.png') no-repeat right center;
+  background-size: 100%;
+  opacity: 1;
+  animation: lampa 10s normal ease;
+  &:hover {
+    animation: hoverLink .3s normal ease;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    left: calc(-100%);
+    right: 0;
+    display: block;
+    margin: 0;
+    height: 0.1px;
+    background: #fff;
+    box-shadow: 0 0 300px 50px #fff;
+    border-radius: 100%;
+  }
+}
+
+.information-main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #f71aff;
+  padding: 20px;
+  animation: box-shadow-block 2s normal infinite ease;
+  border-radius: 10px;
+  transition: 2s;
+  &:hover {
+    animation: livatation 2s normal infinite ease,
+               box-shadow-block 2s normal infinite ease;
+  }
+  &:hover .lamp-shine {
+    animation: hoverLink .3s normal ease;
+  }
+  p {
+    position: relative;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: @fontFlavors;
+    &:hover:after {
+      width: 100%;
+      transition: 1.5s;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #f71aff;
+    }
+  }
+}
+
+/* Анимация */
+@keyframes livatation {
+  45% {
+    transform: rotateZ(2deg) rotateX(2deg);
+  }
+  90% {
+    transform: rotateZ(-2deg) rotateX(-2deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateX(0deg);
+  }
+}
+
+@keyframes box-shadow-block {
+  0% {
+    box-shadow: 10px 0 20px 1px #f71aff;
+  }
+  25% {
+    box-shadow: 0 10px 20px 1px #f71aff;
+  }
+  50% {
+    box-shadow: -10px 0 20px 1px orangered;
+  }
+  75% {
+    box-shadow: 0 -10px 20px 1px blue;
+  }
+  100% {
+    box-shadow: 10px 0 20px 1px red;
+  }
+}
+
+@keyframes lampa {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hoverLink {
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
